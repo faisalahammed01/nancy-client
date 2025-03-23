@@ -41,7 +41,7 @@ const Chatbox = () => {
         -- Chat with Nancy --
       </h1>
 
-      <div className="w-full max-w-3xl p-6 border-4 border-cyan-500 bg-[#fffada] rounded-3xl shadow-lg overflow-y-auto h-96 mb-6">
+      <div className="w-full max-w-3xl p-6 border-4 border-cyan-500 bg-[#fffacd] rounded-3xl shadow-lg overflow-y-auto h-96 mb-6">
         <div className="space-y-4">
           {messages.map((msg, index) => (
             <div
