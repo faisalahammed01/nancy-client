@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { BiSolidSend } from "react-icons/bi";
 
 const Chatbox = () => {
   const [prompt, setPrompt] = useState("");
@@ -35,9 +36,13 @@ const Chatbox = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-pink-300 to-gray-600 text-white flex flex-col items-center justify-center p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Chat with Nancy</h1>
-      <div className="w-full max-w-3xl p-6 bg-white rounded-3xl shadow-lg overflow-y-auto h-96 mb-6">
+    <div className="min-h-screen bg-gradient-to-r from-gray-500 to-gray-700 text-white flex flex-col items-center justify-center p-6">
+      <div className="flex gap-2 items-center mb-6 flex-wrap justify-center">
+        <h1 className="text-2xl font-semibold font-serif mb-6 text-center uppercase w-full">
+          Chat with Nancy
+        </h1>
+      </div>
+      <div className="w-full max-w-3xl p-6 border-4 border-cyan-500 bg-white rounded-3xl shadow-lg overflow-y-auto h-96 mb-6">
         <div className="space-y-4">
           {messages.map((msg, index) => (
             <div
@@ -53,20 +58,22 @@ const Chatbox = () => {
           ))}
         </div>
       </div>
-      <div className="flex w-full max-w-3xl">
+      <div className="flex w-full max-w-3xl gap-4">
         <input
           type="text"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Say something..."
-          className="flex-1 p-4 border-2 border-gray-300 rounded-lg shadow-md text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 p-4 border-4 border-gray-300 rounded-lg shadow-md text-white font-bold focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button
           onClick={sendMessage}
           disabled={loading}
-          className="ml-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white px-6 py-3 rounded-lg text-lg shadow-md transition-all duration-300 ease-in-out"
+          className="p-4 bg-gray-600 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
-          {loading ? "Thinking..." : "Send"}
+          <p className="text-3xl">
+            <BiSolidSend />
+          </p>
         </button>
       </div>
     </div>

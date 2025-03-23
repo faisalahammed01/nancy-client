@@ -2,11 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Chatbox from "./Component/Chatbox";
+import Root from "./Component/Root/Root";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Chatbox></Chatbox>,
+    element: <Root></Root>,
   },
 ]);
 
