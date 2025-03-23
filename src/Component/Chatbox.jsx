@@ -17,7 +17,9 @@ const Chatbox = () => {
 
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/nancy?prompt=${encodeURIComponent(prompt)}`
+        `https://nancy-ai-faisal-ahammeds-projects.vercel.app/nancy?prompt=${encodeURIComponent(
+          prompt
+        )}`
       );
       setMessages([
         ...messages,
