@@ -37,27 +37,33 @@ const Chatbox = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-500 to-gray-700 text-white flex flex-col items-center justify-center p-6">
-      <div className="flex gap-2 items-center mb-6 flex-wrap justify-center">
-        <h1 className="text-2xl font-semibold font-serif mb-6 text-center uppercase w-full">
-          Chat with Nancy
-        </h1>
-      </div>
-      <div className="w-full max-w-3xl p-6 border-4 border-cyan-500 bg-white rounded-3xl shadow-lg overflow-y-auto h-96 mb-6">
+      <h1 className="text-2xl font-semibold font-serif mb-6 text-center uppercase w-full">
+        -- Chat with Nancy --
+      </h1>
+
+      <div className="w-full max-w-3xl p-6 border-4 border-cyan-500 bg-[#fffada] rounded-3xl shadow-lg overflow-y-auto h-96 mb-6">
         <div className="space-y-4">
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`p-4 rounded-xl font-bold ${
-                msg.sender === "user"
-                  ? "bg-blue-600 text-right text-white"
-                  : "bg-pink-600 text-left text-white"
+              className={`chat ${
+                msg.sender === "user" ? "chat-end" : "chat-start"
               }`}
             >
-              {msg.text}
+              <div
+                className={`chat-bubble ${
+                  msg.sender === "user"
+                    ? "chat-bubble-primary"
+                    : "chat-bubble-secondary"
+                }`}
+              >
+                {msg.text}
+              </div>
             </div>
           ))}
         </div>
       </div>
+
       <div className="flex w-full max-w-3xl gap-4">
         <input
           type="text"
@@ -71,9 +77,7 @@ const Chatbox = () => {
           disabled={loading}
           className="p-4 bg-gray-600 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all duration-300 ease-in-out flex items-center justify-center"
         >
-          <p className="text-3xl">
-            <BiSolidSend />
-          </p>
+          <BiSolidSend className="text-3xl" />
         </button>
       </div>
     </div>
